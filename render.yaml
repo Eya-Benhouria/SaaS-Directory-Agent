@@ -1,0 +1,34 @@
+services:
+  # Backend API Service
+  - type: web
+    name: saas-directory-api
+    env: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: saas-directory-db
+          property: connectionString
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: LLM_PROVIDER
+        value: openai
+      - key: LLM_MODEL
+        value: gpt-4o
+      - key: BROWSER_HEADLESS
+        value: "true"
+      - key: MAX_CONCURRENT_SUBMISSIONS
+        value: "3"
+      - key: CORS_ORIGINS
+        sync: false
+
+databases:
+  - name: saas-directory-db
+    plan: free
+    databaseName: saas_directory
+    user: saas_user
