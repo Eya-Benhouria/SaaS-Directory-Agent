@@ -313,6 +313,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [React](https://react.dev/) and [Vite](https://vitejs.dev/) for the frontend
 - [OpenAI](https://openai.com/) and [Anthropic](https://anthropic.com/) for AI capabilities
 
----
-
-Built with ❤️ for the SaaS community
